@@ -1,4 +1,4 @@
-# Fantasy Consts
+# Fantasy Monoids
 
 ![](https://raw.github.com/puffnfresh/fantasy-land/master/logo.png)
 
