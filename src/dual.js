@@ -1,7 +1,7 @@
 'use strict';
 
 const {tagged} = require('daggy');
-const {empty, of, concat, map, equals} = require('fantasy-land');
+const {empty, of, concat, equals} = require('fantasy-land');
 
 const Dual = M => {
 
@@ -15,10 +15,6 @@ const Dual = M => {
     };
     Dual.prototype[concat] = function(y) {
         return Dual(this.x[concat](y.x));
-    };
-
-    Dual.prototype[map] = function(f) {
-        return Dual(this.x[map](f));
     };
 
     return Dual;

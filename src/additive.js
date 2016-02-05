@@ -1,7 +1,7 @@
 'use strict';
 
 const {tagged} = require('daggy');
-const {empty, of, concat, map, equals} = require('fantasy-land');
+const {empty, of, concat, equals} = require('fantasy-land');
 
 const Additive = tagged('x');
 
@@ -13,10 +13,6 @@ Additive.prototype[equals] = function(y) {
 };
 Additive.prototype[concat] = function(y) {
     return Additive(this.x + y.x);
-};
-
-Additive.prototype[map] = function(f) {
-    return Additive(f(this.x));
 };
 
 module.exports = Additive;
