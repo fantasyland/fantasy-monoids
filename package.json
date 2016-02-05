@@ -1,0 +1,34 @@
+{
+  "name": "fantasy-monoids",
+  "description": "Monoid data structures.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fantasyland/fantasy-monoids.git"
+  },
+  "keywords": [
+    "fantasyland",
+    "const",
+    "functor"
+  ],
+  "author": "Simon Richardson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fantasyland/fantasy-monoids/issues"
+  },
+  "dependencies": {
+    "daggy": "0.0.1",
+    "fantasy-land": "git+https://github.com/fantasyland/fantasy-land.git",
+    "fantasy-combinators": "git+https://github.com/fantasyland/fantasy-combinators.git"
+  },
+  "devDependencies": {
+    "nodeunit": "0.9.x",
+    "fantasy-check": "git+https://github.com/fantasyland/fantasy-check.git",
+    "fantasy-identities": "git+https://github.com/fantasyland/fantasy-identities.git"
+  },
+  "scripts": {
+      "test": "node --harmony_destructuring node_modules/.bin/nodeunit test/*.js"
+  },
+  "files": ["fantasy-monoids.js", "src/*.js"],
+  "main": "fantasy-monoids.js",
+  "version": "0.0.1"
+}
