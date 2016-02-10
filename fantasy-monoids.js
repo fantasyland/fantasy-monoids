@@ -7,6 +7,8 @@ const Dual           = require('./src/dual');
 const Endo           = require('./src/endo');
 const Multiplicative = require('./src/multiplicative');
 const Unit           = require('./src/unit');
+const Min           = require('./src/min');
+const Max           = require('./src/max');
 
 module.exports = { Additive
                  , Conjunction
@@ -15,4 +17,6 @@ module.exports = { Additive
                  , Endo
                  , Multiplicative
                  , Unit
+                 , Min
+                 , Max
                  };
