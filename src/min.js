@@ -12,7 +12,7 @@ Min.prototype[equals] = function(y) {
     return this.x === y.x;
 };
 Min.prototype[concat] = function(y) {
-    return Min(Math.min(this.x, y.x));
+    return Min(this.x < y.x ? this.x : y.x);
 };
 
 module.exports = Min;
