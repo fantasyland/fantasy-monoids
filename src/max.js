@@ -12,7 +12,7 @@ Max.prototype[equals] = function(y) {
     return this.x === y.x;
 };
 Max.prototype[concat] = function(y) {
-    return Max(Math.max(this.x, y.x));
+    return Max(this.x > y.x ? this.x : y.x);
 };
 
 module.exports = Max;
