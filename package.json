@@ -21,14 +21,18 @@
     "fantasy-combinators": "git+https://github.com/fantasyland/fantasy-combinators.git"
   },
   "devDependencies": {
-    "nodeunit": "0.9.x",
     "fantasy-check": "git+https://github.com/fantasyland/fantasy-check.git",
-    "fantasy-identities": "git+https://github.com/fantasyland/fantasy-identities.git"
+    "fantasy-identities": "git+https://github.com/fantasyland/fantasy-identities.git",
+    "mocha": "^2.4.5",
+    "nodeunit": "0.9.x"
   },
   "scripts": {
-      "test": "node --harmony_destructuring node_modules/.bin/nodeunit test/*.js"
+    "test": "node --harmony_destructuring node_modules/.bin/nodeunit test/*.js"
   },
-  "files": ["fantasy-monoids.js", "src/*.js"],
+  "files": [
+    "fantasy-monoids.js",
+    "src/*.js"
+  ],
   "main": "fantasy-monoids.js",
   "version": "0.0.1"
 }
