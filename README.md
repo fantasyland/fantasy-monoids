@@ -13,8 +13,8 @@
 | Endo           | function identity | function composition |
 | Multiplicative | 1                 | *                    |
 | Unit           | {}                | {}                   |
-| Min            | Number.MIN_VALUE  | <                    |
-| Max            | Number.MAX_VALUE  | >                    |
+| Min            | Number.MAX_VALUE  | <                    |
+| Max            | Number.MIN_VALUE  | >                    |
 
 
 ## Testing
