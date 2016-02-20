@@ -6,7 +6,7 @@ const {empty, of, concat, equals} = require('fantasy-land');
 const Max = tagged('x');
 
 Max[of] = x => Max(x);
-Max[empty] = () => Max(Number.MAX_VALUE);
+Max[empty] = () => Max(Number.MIN_VALUE);
 
 Max.prototype[equals] = function(y) {
     return this.x === y.x;
