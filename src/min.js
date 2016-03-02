@@ -2,17 +2,22 @@
 
 const {tagged} = require('daggy');
 const {empty, of, concat, equals} = require('fantasy-land');
+const {compare, max, LT} = require('./ord');
 
-const Min = tagged('x');
+const Min = Ord => {
+  const Min = tagged('x');
 
-Min[of] = x => Min(x);
-Min[empty] = () => Min(Number.MAX_VALUE);
+  Min[of] = x => Min(Ord[of](x));
+  Min[empty] = () => Min(Ord[max]());
 
-Min.prototype[equals] = function(y) {
-    return this.x === y.x;
-};
-Min.prototype[concat] = function(y) {
-    return Min(this.x < y.x ? this.x : y.x);
+  Min.prototype[equals] = function(y) {
+      return this.x[equals](y.x);
+  };
+  Min.prototype[concat] = function(y) {
+      return Min(this.x[compare](y.x) === LT ? this.x : y.x);
+  };
+
+  return Min;
 };
 
 module.exports = Min;
