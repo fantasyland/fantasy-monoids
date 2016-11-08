@@ -14,7 +14,7 @@ const Dual = M => {
         return this.x[equals](y.x);
     };
     Dual.prototype[concat] = function(y) {
-        return Dual(this.x[concat](y.x));
+        return Dual(y.x[concat](this.x));
     };
 
     return Dual;

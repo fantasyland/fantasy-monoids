@@ -3,6 +3,7 @@
 const {adapters: {nodeunit: λ}} = require('fantasy-check');
 const {identity} = require('fantasy-combinators');
 
+const {of, concat, empty} = require('fantasy-land')
 const m = require('fantasy-land/laws/monoid');
 const s = require('fantasy-land/laws/semigroup');
 const sʹ = require('fantasy-land/laws/setoid');
@@ -23,15 +24,15 @@ exports.monoid = {
 
 exports.semigroup = {
 
-    'associativity': λ.law(s.associativity)(Maxʹ.of)
+    'associativity': λ.law(s.associativity)(Maxʹ[of])
 };
 
 
 exports.setoid = {
 
-    'reflexivity': λ.law(sʹ.reflexivity)(Maxʹ.of),
-    'symmetry': λ.law(sʹ.symmetry)(Maxʹ.of),
-    'transitivity': λ.law(sʹ.transitivity)(Maxʹ.of)
+    'reflexivity': λ.law(sʹ.reflexivity)(Maxʹ[of]),
+    'symmetry': λ.law(sʹ.symmetry)(Maxʹ[of]),
+    'transitivity': λ.law(sʹ.transitivity)(Maxʹ[of])
 };
 
 exports.basicUsage = test => {
@@ -39,10 +40,10 @@ exports.basicUsage = test => {
 
     test.deepEqual(
         Maxʹ(Ordʹ(3))
-          .concat(Maxʹ(Ordʹ(6)))
-          .concat(Maxʹ(Ordʹ(8)))
-          .concat(Maxʹ(Ordʹ(9)))
-          .concat(Maxʹ(Ordʹ(1)))
+          [concat](Maxʹ(Ordʹ(6)))
+          [concat](Maxʹ(Ordʹ(8)))
+          [concat](Maxʹ(Ordʹ(9)))
+          [concat](Maxʹ(Ordʹ(1)))
         , expected
     )
     test.deepEqual(
@@ -51,7 +52,7 @@ exports.basicUsage = test => {
                 , Maxʹ(Ordʹ(8))
                 , Maxʹ(Ordʹ(9))
                 , Maxʹ(Ordʹ(1))
-                ], Maxʹ.empty()
+                ], Maxʹ[empty]()
                 )
         , expected);
 

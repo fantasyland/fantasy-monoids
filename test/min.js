@@ -1,5 +1,6 @@
 'use strict';
 
+const {of, concat, empty} = require('fantasy-land')
 const {adapters: {nodeunit: λ}} = require('fantasy-check');
 const {identity} = require('fantasy-combinators');
 
@@ -23,15 +24,15 @@ exports.monoid = {
 
 exports.semigroup = {
 
-    'associativity': λ.law(s.associativity)(Minʹ.of)
+    'associativity': λ.law(s.associativity)(Minʹ[of])
 };
 
 
 exports.setoid = {
 
-    'reflexivity': λ.law(sʹ.reflexivity)(Minʹ.of),
-    'symmetry': λ.law(sʹ.symmetry)(Minʹ.of),
-    'transitivity': λ.law(sʹ.transitivity)(Minʹ.of)
+    'reflexivity': λ.law(sʹ.reflexivity)(Minʹ[of]),
+    'symmetry': λ.law(sʹ.symmetry)(Minʹ[of]),
+    'transitivity': λ.law(sʹ.transitivity)(Minʹ[of])
 };
 
 exports.basicUsage = test => {
@@ -39,10 +40,10 @@ exports.basicUsage = test => {
 
     test.deepEqual(
         Minʹ(Ordʹ(3))
-          .concat(Minʹ(Ordʹ(6)))
-          .concat(Minʹ(Ordʹ(8)))
-          .concat(Minʹ(Ordʹ(9)))
-          .concat(Minʹ(Ordʹ(1)))
+          [concat](Minʹ(Ordʹ(6)))
+          [concat](Minʹ(Ordʹ(8)))
+          [concat](Minʹ(Ordʹ(9)))
+          [concat](Minʹ(Ordʹ(1)))
         , expected
     )
     test.deepEqual(
@@ -51,7 +52,7 @@ exports.basicUsage = test => {
                 , Minʹ(Ordʹ(8))
                 , Minʹ(Ordʹ(9))
                 , Minʹ(Ordʹ(1))
-                ], Minʹ.empty()
+                ], Minʹ[empty]()
                 )
         , expected);
 
